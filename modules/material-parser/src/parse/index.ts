@@ -16,6 +16,7 @@ export interface IParseArgs extends IMaterialScanModel {
   typingsFileAbsolutePath?: string;
   mainFileAbsolutePath: string;
   moduleFileAbsolutePath?: string;
+  useDefaultTsConfig?: boolean;
 }
 
 export function isTSLike(str) {

@@ -480,7 +480,14 @@ export default function parseTS(filePath: string, args: IParseArgs): ComponentDo
   if (!filePath) return [];
 
   let basePath = args.moduleDir || args.workDir || path.dirname(filePath);
-  let tsConfigPath = findConfig('tsconfig.json', { cwd: basePath }); // path.resolve(basePath, 'tsconfig.json')
+
+  let tsConfigPath;
+  if (args.useDefaultTsConfig) {
+    tsConfigPath = defaultTsConfigPath;
+  } else {
+    tsConfigPath = findConfig('tsconfig.json', { cwd: basePath }); // path.resolve(basePath, 'tsconfig.json')
+  }
+  
   if (
     !tsConfigPath ||
     !existsSync(tsConfigPath) ||
