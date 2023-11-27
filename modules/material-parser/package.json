@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "prebuild": "npm run schema && npm run bundle",
+    "prebuild": "npm run schema",
     "postbuild": "copyfiles -u 1 \"src/**/*.json\" lib/",
     "prepublishOnly": "npm run build",
     "test": "jest --verbose",
